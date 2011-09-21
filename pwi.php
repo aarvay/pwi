@@ -26,7 +26,7 @@ class PWI
 	protected $regno; //Register Number of the Student.
 	protected $pass; //Password => Birthday(ddmmyyyy)
 	
-	private $isAuthenticated; // Parameter to find if the user has successfully been authenticated against the PWI
+	public $isAuthenticated; // Parameter to find if the user has successfully been authenticated against the PWI
 	private $isMainCampus;	// Parameter to find if the user is from Main Campus or from SRC Kumbakonam
 	
 	/**
