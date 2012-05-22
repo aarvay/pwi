@@ -233,13 +233,32 @@ class PWI
 		if (isset($this->regno) && isset($this->pass)) {
 			if($this->getAuthStatus()) {
 				/**
-				 * Can be worked upon only when there is atleast one entry!
+				 * Get the Internal Marks from PWI
 				 */
 				$ch = $this->ch;
 				curl_setopt($ch, CURLOPT_URL, "http://webstream.sastra.edu/sastrapwi/resource/StudentDetailsResources.jsp?resourceid=22");
 				curl_setopt ($ch, CURLOPT_REFERER, "http://webstream.sastra.edu/sastrapwi/usermanager/home.jsp");
-				$details = curl_exec($ch);
-				echo $details;
+				$html = curl_exec($ch);
+				phpQuery::newDocument($html);
+				
+				/**
+				* Parse the Content
+				*/
+				pq('td:not(.tablecontent01,.tablecontent02,.tablecontent03,.tabletitle05)')->remove();
+				pq('tr:empty')->remove();
+				pq('tr:first')->remove();
+				pq('tr:first')->remove();
+				$rows = pq('table tr');
+				$details = array();
+				foreach ($rows as $key => $row) {
+					$details[$key]['SUBCODE'] = trim(pq($row)->find('td:eq(0)')->text());
+					$details[$key]['SUBNAME'] = trim(pq($row)->find('td:eq(1)')->text());
+					$details[$key]['MIDSEM'] = trim(pq($row)->find('td:eq(2)')->text());
+					$details[$key]['YOURMARKS'] = trim(pq($row)->find('td:eq(3)')->text());
+					$details[$key]['TOTALMARKS'] = trim(pq($row)->find('td:eq(4)')->text());
+				}
+				return json_encode($details);
+				
 			} else {
 				return $this->authError();
 			}
