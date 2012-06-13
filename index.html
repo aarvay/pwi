@@ -1,0 +1,94 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>{PWI} by aarvay</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>{PWI}</h1>
+        <p>A fast and a lightweight php-sdk for SASTRA's Parent Web Interface.</p>
+        <p class="view"><a href="https://github.com/aarvay/pwi">View the Project on GitHub <small>aarvay/pwi</small></a></p>
+        <ul>
+          <li><a href="https://github.com/aarvay/pwi/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/aarvay/pwi/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/aarvay/pwi">View On <strong>GitHub</strong></a></li>
+        </ul>
+      </header>
+      <section>
+        <h1>{PWI}</h1>
+
+<p>A fast and a lightweight php-sdk for SASTRA's Parent Web Interface (<a href="http://webstream.sastra.edu/sastrapwi/">http://webstream.sastra.edu/sastrapwi/</a>).</p>
+
+<h2>Synopsis</h2>
+
+<p>Set the two parameters(regno and pass) and literally get anything that you need, in a neat JSON object.</p>
+
+<h2>Installation/Usage</h2>
+
+<pre><code>&lt;?php
+    include (pwi/pwi.php)
+    ..
+    ..
+?&gt;
+</code></pre>
+
+<h2>Resources</h2>
+
+<ul>
+<li>View Source on GitHub (<a href="https://github.com/aarvay/pwi">https://github.com/aarvay/pwi</a>)</li>
+<li>Report Issues on GitHub (<a href="https://github.com/aarvay/pwi/issues">https://github.com/aarvay/pwi/issues</a>)</li>
+<li>Read the API docs (<a href="http://aarvay.in/pwi/docs/">http://aarvay.in/pwi/docs/</a>)</li>
+</ul><h2>A Small Example</h2>
+
+<p>1.Below is an example to fetch the Attendance of a student</p>
+
+<pre><code>&lt;?php
+    include('pwi/pwi.php');         
+
+    $student = new PWI(array(
+    'regno' =&gt; 'xxxxxxxxx',
+    'pass' =&gt; 'ddmmyyyy',
+));
+
+echo $student-&gt;getAttendance();
+?&gt;
+</code></pre>
+
+<p>Its as simple as that. And here is a sample output to expect from the above.</p>
+
+<pre><code>{"0":{"SUBCODE":" BCSCCS501R01","SUBNAME":" DESIGN AND ANALYSIS OF ALGORITHMS","TOTAL":" 2","PRESENT":" 0","ABSENT":" 2","%":" 0"},"1":{"SUBCODE":" BCSCCS503R01","SUBNAME":" DATABASE MANAGEMENT SYSTEMS","TOTAL":" 6","PRESENT":" 0","ABSENT":" 6","%":" 0"},"2":{"SUBCODE":" BCSDCS502","SUBNAME":" PERVASIVE COMPUTING","TOTAL":" 3","PRESENT":" 2","ABSENT":" 1","%":" 67"},"%":" 18.18 "}     
+</code></pre>
+
+<h2>Note on Patches/Pull Requests</h2>
+
+<ol>
+<li>Fork the project.</li>
+<li>Create a topic branch.</li>
+<li>Implement your feature or bug fix.</li>
+<li>Add documentation for your feature or bug fix.</li>
+<li>Add specs for your feature or bug fix.</li>
+<li>Commit and push your changes.</li>
+</ol><h2>Copyright</h2>
+
+<p>Copyright (c) 2011 {PWI}, Vignesh Rajagopalan.
+See <a href="http://aarvay.in/pwi/LICENSE">LICENSE</a> for details.</p>
+      </section>
+      <footer>
+        <p>This project is maintained by <a href="https://github.com/aarvay">aarvay</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
+    </div>
+    <script src="javascripts/scale.fix.js"></script>
+    
+  </body>
+</html>
